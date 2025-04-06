@@ -1,1 +1,151 @@
-inventutor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guides Collection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .guides-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .guide-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .guide-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .guide-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .guide-link:hover {
+            background-color: #2980b9;
+        }
+        .category {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Helpful Guides</h1>
+    
+    <!-- EDIT THIS SECTION TO ADD YOUR GUIDES -->
+    <div id="guides-data" style="display: none;">
+        <!-- 
+            GUIDE DATA FORMAT:
+            <div class="guide" data-category="Category Name">
+                <span class="title">Guide Title</span>
+                <span class="url">https://example.com</span>
+            </div>
+        -->
+        
+        <!-- Example guides - REPLACE THESE WITH YOUR OWN -->
+        <div class="guide" data-category="Getting Started">
+            <span class="title">Beginner's Tutorial</span>
+            <span class="url">https://example.com/beginner-guide</span>
+        </div>
+        <div class="guide" data-category="Getting Started">
+            <span class="title">Installation Guide</span>
+            <span class="url">https://example.com/installation</span>
+        </div>
+        <div class="guide" data-category="Advanced Topics">
+            <span class="title">Performance Optimization</span>
+            <span class="url">https://example.com/optimization</span>
+        </div>
+        <div class="guide" data-category="Advanced Topics">
+            <span class="title">Debugging Techniques</span>
+            <span class="url">https://example.com/debugging</span>
+        </div>
+        <div class="guide" data-category="Reference">
+            <span class="title">API Documentation</span>
+            <span class="url">https://example.com/api-docs</span>
+        </div>
+    </div>
+    
+    <div id="guides-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const guidesContainer = document.getElementById('guides-container');
+            const guideElements = document.querySelectorAll('#guides-data .guide');
+            
+            // Organize guides by category
+            const categories = {};
+            
+            guideElements.forEach(guide => {
+                const category = guide.getAttribute('data-category');
+                const title = guide.querySelector('.title').textContent;
+                const url = guide.querySelector('.url').textContent;
+                
+                if (!categories[category]) {
+                    categories[category] = [];
+                }
+                
+                categories[category].push({ title, url });
+            });
+            
+            // Render guides by category
+            for (const [category, guides] of Object.entries(categories)) {
+                // Add category heading
+                const categoryHeading = document.createElement('h2');
+                categoryHeading.className = 'category';
+                categoryHeading.textContent = category;
+                guidesContainer.appendChild(categoryHeading);
+                
+                // Create container for this category's guides
+                const categoryContainer = document.createElement('div');
+                categoryContainer.className = 'guides-container';
+                
+                // Add guides
+                guides.forEach(guide => {
+                    const guideCard = document.createElement('div');
+                    guideCard.className = 'guide-card';
+                    guideCard.innerHTML = `
+                        <div class="guide-title">${guide.title}</div>
+                        <a href="${guide.url}" target="_blank" class="guide-link">View Guide</a>
+                    `;
+                    categoryContainer.appendChild(guideCard);
+                });
+                
+                guidesContainer.appendChild(categoryContainer);
+            }
+        });
+    </script>
+</body>
+</html>
