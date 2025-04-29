@@ -65,46 +65,40 @@
 <body>
     <h1>InvenTutor Tutorials</h1>
     
-    <!-- EDIT THIS SECTION TO ADD YOUR GUIDES -->
-    <div id="guides-data" style="display: none;">
-        <!-- 
-            GUIDE DATA FORMAT:
-            <div class="guide" data-category="Category Name">
-                <span class="title">Guide Title</span>
-                <span class="url">https://example.com</span>
-            </div>
-        -->
-        
-        <!-- Example guides - REPLACE THESE WITH YOUR OWN -->
-        <div class="guide" data-category="Getting Started">
-            <span class="title">How to Create an Inventor.gg bot</span>
-            <span class="url">https://www.youtube.com/watch?v=MQ_fkbbXUTE</span>
-        </div>
-        <div class="guide" data-category="Getting Started">
-            <span class="title">How to Save Data using Databases</span>
-            <span class="url">https://www.youtube.com/watch?v=Tj7DJtbMurI</span>
-        </div>
-        <div class="guide" data-category="Getting Started">
-            <span class="title">How to create Basic Moderation Commands</span>
-            <span class="url">https://www.youtube.com/watch?v=ma3aPSiFy5U</span>
-        </div>
-        <div class="guide" data-category="Advanced Topics">
-            <span class="title">How to use Modals</span>
-            <span class="url">https://www.youtube.com/watch?v=NpKj9afGzBk</span>
-        </div>
-        <div class="guide" data-category="Advanced Topics">
-            <span class="title">How to use Custom Blocks</span>
-            <span class="url">https://www.youtube.com/watch?v=NexDUJbNqJ4</span>
-        </div>
-        <div class="guide" data-category="Advanced Topics">
-            <span class="title">How to use Discord OAuth</span>
-            <span class="url">https://www.youtube.com/watch?v=gQUeAf99m6I</span>
-        </div>
-        <div class="guide" data-category="Advanced Topics">
-            <span class="title">How to use Tebex with your Inventor.gg bot</span>
-            <span class="url">https://www.youtube.com/watch?v=VscL0hXn9jE</span>
-        </div>
-    </div>
+    <div id="guides-container" style="
+    margin: 50px auto; 
+    padding: 20px; 
+    background-color: #1d2c49; 
+    border-radius: 8px; 
+    text-align: center; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    max-width: 600px;
+">
+    <h2 style="color: #fdbd24; font-size: 1.5rem; margin-bottom: 10px;">Our Tutorials</h2>
+    <p style="color: #fff; font-size: 1rem; margin-bottom: 20px;">
+        Watch all of our tutorials for free on the site below.<br>
+        It provides a better viewing experience than on YouTube.<br>
+        <br>
+        (You can still watch them on YouTube if you prefer.)
+    </p>
+    <a href="https://8bitoe.github.io/inventutor/videos" style="
+        display: inline-block; 
+        background-color: #fdbd24; 
+        color: rgb(0, 0, 0); 
+        padding: 10px 20px; 
+        border-radius: 5px; 
+        font-size: 1rem; 
+        text-decoration: none; 
+        font-weight: bold; 
+        cursor: pointer; 
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    " 
+    target="_blank"
+    onmouseover="this.style.backgroundColor='#ca9823'; this.style.transform='scale(1.05)';"
+    onmouseout="this.style.backgroundColor='#fdbd24'; this.style.transform='scale(1)';">
+        Watch Tutorials
+    </a>
+</div>
     
     <div id="guides-container"></div>
 
